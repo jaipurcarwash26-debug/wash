@@ -1,0 +1,298 @@
+<div class="admin-requests-page">
+
+  <!-- HEADER -->
+  <section class="admin-dashboard-header">
+    <div class="container-fluid">
+      <span>JAIPUR CAR CLEAN</span>
+      <h1>Customer Requests</h1>
+      <p>View and manage trial and subscription requests.</p>
+    </div>
+  </section>
+
+  <!-- REQUEST CONTENT -->
+  <section class="admin-request-content">
+    <div class="container-fluid">
+
+      <!-- SEARCH AND FILTERS -->
+      <div class="admin-request-toolbar">
+
+        <div class="admin-request-search">
+          <i class="bi bi-search"></i>
+          <input
+            type="text"
+            id="requestSearch"
+            class="form-control"
+            placeholder="Search name, phone, or car number..."
+            autocomplete="off"
+          >
+        </div>
+
+        <div class="admin-request-filters">
+          <button type="button" class="request-filter active" data-filter="ALL">
+            All
+          </button>
+
+          <button type="button" class="request-filter" data-filter="TRIAL">
+            <i class="bi bi-car-front"></i>
+            Trial
+          </button>
+
+          <button type="button" class="request-filter" data-filter="SUBSCRIPTION">
+            <i class="bi bi-card-checklist"></i>
+            Subscription
+          </button>
+        </div>
+
+      </div>
+
+      <!-- REQUEST COUNT -->
+      <div class="admin-request-summary">
+        <div>
+          <span>Customer Requests</span>
+          <strong id="requestCount"><%= requests.length %></strong>
+        </div>
+      </div>
+
+      <!-- REQUEST LIST -->
+      <div class="admin-request-list" id="requestList">
+
+        <% if (requests.length === 0) { %>
+          <div class="admin-empty-state">
+            <i class="bi bi-inbox"></i>
+            <h3>No Customer Requests</h3>
+            <p>Trial and subscription requests will appear here.</p>
+          </div>
+        <% } %>
+
+        <% requests.forEach((request) => { %>
+          <%
+            const customer = request.customerId;
+            const requestType = request.requestType || "TRIAL";
+
+            const customerName = customer?.name || "Unknown Customer";
+            const phone = customer?.phone || "N/A";
+            const email = customer?.email || "";
+            const carNumber = customer?.carNumber || "N/A";
+            const carLocation = customer?.carLocation || "";
+            const address = customer?.address || "";
+            const mapLocationUrl = customer?.mapLocationUrl || "";
+            const planName = request.planName || "";
+            const planPrice = request.planPrice;
+            const status = request.status || "PENDING";
+
+            const createdAt = request.createdAt
+              ? new Date(request.createdAt)
+              : null;
+
+            const validMapUrl =
+              /^https?:\/\//i.test(mapLocationUrl);
+          %>
+
+          <article
+            class="admin-request-card"
+            data-type="<%= requestType %>"
+            data-name="<%= customerName.toLowerCase() %>"
+            data-phone="<%= phone.toLowerCase() %>"
+            data-car="<%= carNumber.toLowerCase() %>"
+          >
+
+            <!-- REQUEST TYPE ICON -->
+            <div class="request-type-icon">
+              <% if (requestType === "TRIAL") { %>
+                <i class="bi bi-car-front-fill"></i>
+              <% } else { %>
+                <i class="bi bi-card-checklist"></i>
+              <% } %>
+            </div>
+
+            <!-- CUSTOMER DETAILS -->
+            <div class="request-main-info">
+
+              <div class="request-heading">
+                <h3><%= customerName %></h3>
+
+                <span class="request-type-badge <%= requestType === 'TRIAL' ? 'trial' : 'subscription' %>">
+                  <%= requestType === "TRIAL" ? "TRIAL REQUEST" : "SUBSCRIPTION REQUEST" %>
+                </span>
+              </div>
+
+              <div class="request-details">
+
+                <span>
+                  <i class="bi bi-car-front"></i>
+                  <%= carNumber %>
+                </span>
+
+                <span>
+                  <i class="bi bi-telephone"></i>
+                  <%= phone %>
+                </span>
+
+                <% if (email) { %>
+                  <span>
+                    <i class="bi bi-envelope"></i>
+                    <%= email %>
+                  </span>
+                <% } %>
+
+                <% if (carLocation) { %>
+                  <span>
+                    <i class="bi bi-geo-alt"></i>
+                    Car location: <%= carLocation %>
+                  </span>
+                <% } %>
+
+                <% if (address) { %>
+                  <span>
+                    <i class="bi bi-house"></i>
+                    <%= address %>
+                  </span>
+                <% } %>
+
+                <% if (validMapUrl) { %>
+                  <a
+                    href="<%= mapLocationUrl %>"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="request-map-link"
+                  >
+                    <i class="bi bi-geo-alt-fill"></i>
+                    View Map
+                    <i class="bi bi-box-arrow-up-right"></i>
+                  </a>
+                <% } %>
+
+                <% if (requestType === "SUBSCRIPTION") { %>
+                  <span>
+                    <i class="bi bi-box"></i>
+                    Plan: <%= planName || "Not specified" %>
+                  </span>
+
+                  <% if (planPrice !== null && planPrice !== undefined) { %>
+                    <span>
+                      <i class="bi bi-currency-rupee"></i>
+                      Plan price: ₹<%= Number(planPrice).toLocaleString("en-IN") %>
+                    </span>
+                  <% } %>
+                <% } %>
+
+                <span>
+                  <i class="bi bi-calendar3"></i>
+                  Submitted:
+                  <%= createdAt && !isNaN(createdAt.getTime())
+                    ? createdAt.toLocaleString("en-IN")
+                    : "Date unavailable" %>
+                </span>
+
+              </div>
+
+              <!-- REQUEST STATUS -->
+              <div class="mt-3">
+                <span class="text-muted">Status:</span>
+
+                <span class="badge rounded-pill bg-secondary">
+                  <%= status %>
+                </span>
+              </div>
+
+            </div>
+
+            <!-- DELETE REQUEST -->
+            
+<!-- REMOVE FROM REQUESTS LIST -->
+<div class="request-actions">
+  <form
+    action="/<%= process.env.ADMIN_URL %>/dashboard/requests/<%= request._id %>/delete"
+    method="POST"
+    onsubmit="return confirm('Remove this request from the Requests list? The customer and request data will remain saved.');"
+  >
+    <button
+      type="submit"
+      class="request-action delete-request"
+      title="Remove from Requests list"
+      aria-label="Remove from Requests list"
+    >
+      &times;
+    </button>
+  </form>
+</div>
+
+
+          </article>
+
+        <% }) %>
+
+        <!-- NO SEARCH RESULTS -->
+        <div class="admin-empty-state d-none" id="noSearchResults">
+          <i class="bi bi-search"></i>
+          <h3>No Matching Requests</h3>
+          <p>Try another name, phone number, or car number.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- SEARCH AND FILTER -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("requestSearch");
+  const cards = document.querySelectorAll(".admin-request-card");
+  const filters = document.querySelectorAll(".request-filter");
+  const requestCount = document.getElementById("requestCount");
+  const noSearchResults = document.getElementById("noSearchResults");
+
+  let currentFilter = "ALL";
+
+  function filterRequests() {
+    const search = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const name = card.dataset.name || "";
+      const phone = card.dataset.phone || "";
+      const car = card.dataset.car || "";
+      const type = card.dataset.type || "";
+
+      const matchesSearch =
+        name.includes(search) ||
+        phone.includes(search) ||
+        car.includes(search);
+
+      const matchesFilter =
+        currentFilter === "ALL" ||
+        type === currentFilter;
+
+      if (matchesSearch && matchesFilter) {
+        card.style.display = "";
+        visibleCount++;
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+    requestCount.textContent = visibleCount;
+
+    if (noSearchResults) {
+      noSearchResults.classList.toggle(
+        "d-none",
+        visibleCount !== 0 || cards.length === 0
+      );
+    }
+  }
+
+  searchInput.addEventListener("input", filterRequests);
+
+  filters.forEach((button) => {
+    button.addEventListener("click", () => {
+      filters.forEach((item) => item.classList.remove("active"));
+      button.classList.add("active");
+
+      currentFilter = button.dataset.filter;
+      filterRequests();
+    });
+  });
+});
+</script>

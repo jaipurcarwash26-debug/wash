@@ -1,0 +1,1168 @@
+<section class="subscription-page">
+
+  <!-- =========================================================
+       SUBSCRIPTION HERO
+  ========================================================== -->
+
+  <section class="subscription-hero">
+
+    <div class="container">
+
+      <div class="row align-items-center g-5">
+
+        <!-- =====================================================
+             LEFT CONTENT
+        ====================================================== -->
+
+        <div class="col-lg-5">
+
+          <span class="subscription-badge">
+            <i class="bi bi-stars"></i>
+            PREMIUM CAR CARE
+          </span>
+
+          <h1>
+            Choose The Right
+            <span>Care For Your Car</span>
+          </h1>
+
+          <p class="subscription-hero-text">
+            Register your car, select your preferred service,
+            and enjoy professional car care at your location.
+          </p>
+
+          <!-- TRUST ITEMS -->
+
+          <div class="subscription-trust">
+
+            <div class="subscription-trust-item">
+
+              <i class="bi bi-calendar-check"></i>
+
+              <div>
+                <strong>Regular Service</strong>
+                <span>
+                  Scheduled car care
+                </span>
+              </div>
+
+            </div>
+
+
+            <div class="subscription-trust-item">
+
+              <i class="bi bi-geo-alt-fill"></i>
+
+              <div>
+                <strong>At Your Location</strong>
+                <span>
+                  Convenient doorstep service
+                </span>
+              </div>
+
+            </div>
+
+
+            <div class="subscription-trust-item">
+
+              <i class="bi bi-shield-check"></i>
+
+              <div>
+                <strong>Professional Care</strong>
+                <span>
+                  Reliable car cleaning
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             RIGHT SIDE - CUSTOMER DETAILS
+        ====================================================== -->
+
+        <div class="col-lg-7">
+
+          <div class="subscription-card">
+
+            <!-- HEADER -->
+
+            <div class="subscription-card-header">
+
+              <div class="subscription-icon">
+                <i class="bi bi-car-front-fill"></i>
+              </div>
+
+              <div>
+
+                <h3>
+                  Register Your Car
+                </h3>
+
+                <p>
+                  Enter your details and car location first.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CUSTOMER FORM
+            ================================================== -->
+
+            <form
+              id="subscriptionForm"
+              action="/subscription/book"
+              method="POST"
+            >
+
+              <div class="row g-3">
+
+                <!-- =============================================
+                     CUSTOMER NAME
+                ============================================== -->
+
+                <div class="col-md-6">
+
+                  <div class="subscription-field">
+
+                    <label for="name">
+                      Customer Name
+                    </label>
+
+                    <div class="subscription-input-wrapper">
+
+                      <i class="bi bi-person"></i>
+
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                        autocomplete="name"
+                        required
+                      />
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <!-- =============================================
+                     EMAIL
+                ============================================== -->
+
+                <div class="col-md-6">
+
+                  <div class="subscription-field">
+
+                    <label for="email">
+                      Email Address
+                    </label>
+
+                    <div class="subscription-input-wrapper">
+
+                      <i class="bi bi-envelope"></i>
+
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required
+                      />
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <!-- =============================================
+                     PHONE
+                ============================================== -->
+
+                <div class="col-md-6">
+
+                  <div class="subscription-field">
+
+                    <label for="phone">
+                      Phone Number
+                    </label>
+
+                    <div class="subscription-input-wrapper">
+
+                      <i class="bi bi-telephone"></i>
+
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="Enter phone number"
+                        autocomplete="tel"
+                        required
+                      />
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <!-- =============================================
+                     CAR NUMBER
+                ============================================== -->
+
+                <div class="col-md-6">
+
+                  <div class="subscription-field">
+
+                    <label for="carNumber">
+                      Car Number
+                    </label>
+
+                    <div class="subscription-input-wrapper">
+
+                      <i class="bi bi-car-front"></i>
+
+                      <input
+                        type="text"
+                        id="carNumber"
+                        name="carNumber"
+                        placeholder="RJ14AB1234"
+                        style="text-transform: uppercase"
+                        required
+                      />
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <!-- =============================================
+                     ADDRESS
+                ============================================== -->
+
+                <div class="col-12">
+
+                  <div class="subscription-field">
+
+                    <label for="address">
+                      Address
+                    </label>
+
+                    <div class="subscription-input-wrapper">
+
+                      <i class="bi bi-house"></i>
+
+                      <input
+                        type="text"
+                        id="address"
+                        name="address"
+                        placeholder="Enter your complete address"
+                        autocomplete="street-address"
+                        required
+                      />
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <!-- =============================================
+                     CAR LOCATION
+                ============================================== -->
+
+                <div class="col-12">
+
+                  <div class="subscription-field">
+
+                    <label for="carLocation">
+                      Car Location
+                    </label>
+
+                    <div class="subscription-input-wrapper">
+
+                      <i class="bi bi-geo-alt"></i>
+
+                      <input
+                        type="text"
+                        id="carLocation"
+                        name="carLocation"
+                        placeholder="Where is your car located?"
+                        required
+                      />
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <!-- =============================================
+                     GOOGLE MAP LOCATION
+                ============================================== -->
+
+                <div class="col-12">
+
+                  <div class="subscription-field">
+
+                    <label for="mapLocationUrl">
+                      Google Maps Location
+                    </label>
+
+                    <div class="subscription-input-wrapper">
+
+                      <i class="bi bi-map"></i>
+
+                      <input
+                        type="url"
+                        id="mapLocationUrl"
+                        name="mapLocationUrl"
+                        placeholder="Select location on map"
+                        readonly
+                        required
+                      />
+
+                    </div>
+
+
+                    <button
+                      type="button"
+                      class="location-btn"
+                      data-bs-toggle="modal"
+                      data-bs-target="#subscriptionLocationModal"
+                    >
+
+                      <i class="bi bi-geo-alt"></i>
+
+                      Select Location on Map
+
+                    </button>
+
+
+                    <small class="field-help">
+
+                      <i class="bi bi-info-circle"></i>
+
+                      Select the exact location where
+                      your car is parked.
+
+                    </small>
+
+                  </div>
+
+                </div>
+
+
+                <!-- =============================================
+                     HIDDEN PLAN ID
+                     
+                     The actual plan cards are below the entire
+                     top section, but this hidden input keeps
+                     planId inside the same form.
+                ============================================== -->
+
+                <input
+                  type="hidden"
+                  id="selectedPlanId"
+                  name="planId"
+                  required
+                />
+
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       PLAN SELECTION
+       COMPLETELY SEPARATE FROM CUSTOMER DETAILS
+  ========================================================== -->
+
+  <section class="subscription-plans-section">
+
+    <div class="container">
+
+      <!-- SECTION HEADER -->
+
+      <div class="section-heading text-center">
+
+        <span>
+          CHOOSE YOUR SERVICE
+        </span>
+
+        <h2>
+          Select The Right
+          <span>Plan For Your Car</span>
+        </h2>
+
+        <p>
+          Choose a one-time service or enjoy regular
+          professional car care with our 30-day packages.
+        </p>
+
+      </div>
+
+
+      <!-- =====================================================
+           ONE-TIME SERVICES
+      ====================================================== -->
+
+      <div class="plan-category">
+
+        <div class="plan-category-header">
+
+          <div>
+
+            <span class="plan-category-label">
+              ONE-TIME SERVICE
+            </span>
+
+            <h3>
+              Quick Car Cleaning
+            </h3>
+
+            <p>
+              Perfect when you need a professional wash
+              without a monthly commitment.
+            </p>
+
+          </div>
+
+          <div class="plan-category-icon">
+            <i class="bi bi-droplet-fill"></i>
+          </div>
+
+        </div>
+
+
+        <div class="row g-4">
+
+          <% const oneTimePlans = plans.filter(
+            plan => Number(plan.durationInDays) === 1
+          ); %>
+
+
+          <% oneTimePlans.forEach((plan) => { %>
+
+            <div class="col-md-6">
+
+              <label class="subscription-plan-option">
+
+                <input
+                  type="radio"
+                  name="planSelection"
+                  value="<%= plan._id %>"
+                  data-plan-id="<%= plan._id %>"
+                  data-plan-name="<%= plan.name %>"
+                  form="subscriptionForm"
+                />
+
+
+                <div class="subscription-plan-content">
+
+                  <div class="plan-mini-icon">
+                    <i class="bi bi-car-front"></i>
+                  </div>
+
+
+                  <h4>
+                    <%= plan.name %>
+                  </h4>
+
+
+                  <div class="plan-mini-price">
+
+                    <strong>
+                      ₹<%= plan.price %>
+                    </strong>
+
+                    <span>
+                      / one time
+                    </span>
+
+                  </div>
+
+
+                  <p>
+                    <%= plan.description %>
+                  </p>
+
+
+                  <ul>
+
+                    <% plan.services.forEach(service => { %>
+
+                      <li>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        <%= service %>
+
+                      </li>
+
+                    <% }) %>
+
+                  </ul>
+
+
+                  <span class="plan-select-text">
+
+                    Select Service
+
+                    <i class="bi bi-arrow-right"></i>
+
+                  </span>
+
+                </div>
+
+              </label>
+
+            </div>
+
+          <% }) %>
+
+
+          <!-- FALLBACK IF NO ONE-TIME PLAN EXISTS -->
+
+          <% if (oneTimePlans.length === 0) { %>
+
+            <div class="col-12">
+
+              <div class="alert alert-light border">
+                One-time services are currently unavailable.
+              </div>
+
+            </div>
+
+          <% } %>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           MONTHLY PLANS
+      ====================================================== -->
+
+      <div class="plan-category monthly-plan-category">
+
+        <div class="plan-category-header">
+
+          <div>
+
+            <span class="plan-category-label">
+              30-DAY MONTHLY PACKAGES
+            </span>
+
+            <h3>
+              Regular Car Care
+            </h3>
+
+            <p>
+              Daily exterior cleaning, regular interior cleaning,
+              and one complete deep wash during your 30-day plan.
+            </p>
+
+          </div>
+
+          <div class="plan-category-icon">
+            <i class="bi bi-calendar-check"></i>
+          </div>
+
+        </div>
+
+
+        <div class="row g-4">
+
+          <% const monthlyPlans = plans.filter(
+            plan => Number(plan.durationInDays) === 30
+          ); %>
+
+
+          <% monthlyPlans.forEach((plan, index) => { %>
+
+            <div class="col-md-6 col-xl-3">
+
+              <label class="subscription-plan-option">
+
+                <input
+                  type="radio"
+                  name="planSelection"
+                  value="<%= plan._id %>"
+                  data-plan-id="<%= plan._id %>"
+                  data-plan-name="<%= plan.name %>"
+                  form="subscriptionForm"
+                />
+
+
+                <div class="subscription-plan-content">
+
+                  <% if (plan.name === "Sedan") { %>
+
+                    <span class="plan-popular">
+                      POPULAR
+                    </span>
+
+                  <% } %>
+
+
+                  <div class="plan-mini-icon">
+
+                    <i class="bi bi-car-front"></i>
+
+                  </div>
+
+
+                  <h4>
+                    <%= plan.name %>
+                  </h4>
+
+
+                  <div class="plan-mini-price">
+
+                    <strong>
+                      ₹<%= plan.price %>
+                    </strong>
+
+                    <span>
+                      / 30 days
+                    </span>
+
+                  </div>
+
+
+                  <p>
+                    <%= plan.description %>
+                  </p>
+
+
+                  <ul>
+
+                    <% plan.services.slice(0, 6).forEach(service => { %>
+
+                      <li>
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        <%= service %>
+
+                      </li>
+
+                    <% }) %>
+
+                  </ul>
+
+
+                  <span class="plan-select-text">
+
+                    Select Plan
+
+                    <i class="bi bi-arrow-right"></i>
+
+                  </span>
+
+                </div>
+
+              </label>
+
+            </div>
+
+          <% }) %>
+
+
+          <!-- FALLBACK -->
+
+          <% if (monthlyPlans.length === 0) { %>
+
+            <div class="col-12">
+
+              <div class="alert alert-light border">
+                Monthly plans are currently unavailable.
+              </div>
+
+            </div>
+
+          <% } %>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           SELECTED PLAN SUMMARY
+      ====================================================== -->
+
+      <div
+        class="selected-plan-summary"
+        id="selectedPlanSummary"
+        style="display: none;"
+      >
+
+        <div class="selected-plan-summary-icon">
+
+          <i class="bi bi-check-circle-fill"></i>
+
+        </div>
+
+
+        <div>
+
+          <small>
+            SELECTED SERVICE
+          </small>
+
+          <strong id="selectedPlanName">
+            No plan selected
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           SUBMIT
+      ====================================================== -->
+
+      <div class="subscription-submit-wrapper">
+
+        <button
+          type="submit"
+          form="subscriptionForm"
+          class="subscription-submit"
+          id="subscriptionSubmit"
+        >
+
+          <span>
+            Submit Subscription Request
+          </span>
+
+          <i class="bi bi-arrow-right"></i>
+
+        </button>
+
+
+        <p class="subscription-note">
+
+          <i class="bi bi-shield-check"></i>
+
+          Your request will be reviewed by our team.
+          Service will be activated after confirmation and payment.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       LOCATION MODAL
+  ========================================================== -->
+
+  <div
+    class="modal fade"
+    id="subscriptionLocationModal"
+    tabindex="-1"
+    aria-labelledby="subscriptionLocationModalLabel"
+    aria-hidden="true"
+  >
+
+    <div
+      class="modal-dialog modal-xl modal-dialog-centered location-modal-dialog"
+    >
+
+      <div class="modal-content location-modal-content">
+
+
+        <!-- HEADER -->
+
+        <div class="modal-header">
+
+          <h5
+            class="modal-title"
+            id="subscriptionLocationModalLabel"
+          >
+
+            <i class="bi bi-geo-alt-fill"></i>
+
+            Select Your Car Location
+
+          </h5>
+
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+
+        </div>
+
+
+        <!-- BODY -->
+
+        <div class="modal-body">
+
+          <p class="map-instruction">
+
+            <i class="bi bi-hand-index-thumb"></i>
+
+            Tap or click on the map to select the exact
+            location where your car is parked.
+
+          </p>
+
+
+          <!-- MAP -->
+
+          <div id="subscriptionLocationMap"></div>
+
+
+          <!-- CURRENT LOCATION -->
+
+          <button
+            type="button"
+            class="location-btn"
+            id="useSubscriptionMyLocation"
+          >
+
+            <i class="bi bi-crosshair"></i>
+
+            Use My Current Location
+
+          </button>
+
+
+          <!-- SELECTED LOCATION -->
+
+          <div class="selected-location">
+
+            <i class="bi bi-pin-map-fill"></i>
+
+            <span id="subscriptionSelectedCoordinates">
+
+              Please select a location on the map
+
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="modal-footer">
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+
+            Cancel
+
+          </button>
+
+
+          <button
+            type="button"
+            class="location-confirm-btn"
+            id="confirmSubscriptionLocation"
+            disabled
+          >
+
+            <i class="bi bi-check-circle"></i>
+
+            Confirm Location
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       WHY SUBSCRIBE
+  ========================================================== -->
+
+  <section class="subscription-benefits">
+
+    <div class="container">
+
+      <div class="section-heading text-center">
+
+        <span>
+          WHY CHOOSE US
+        </span>
+
+        <h2>
+          Car Care Made
+          <span>Simple</span>
+        </h2>
+
+        <p>
+          Enjoy consistent professional care without
+          worrying about arranging every wash.
+        </p>
+
+      </div>
+
+
+      <div class="row g-4">
+
+
+        <!-- BENEFIT 1 -->
+
+        <div class="col-md-4">
+
+          <div class="subscription-benefit-card">
+
+            <div class="benefit-icon">
+
+              <i class="bi bi-calendar2-check"></i>
+
+            </div>
+
+            <h4>
+              Regular Cleaning
+            </h4>
+
+            <p>
+              Keep your car clean with scheduled
+              professional service.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- BENEFIT 2 -->
+
+        <div class="col-md-4">
+
+          <div class="subscription-benefit-card">
+
+            <div class="benefit-icon">
+
+              <i class="bi bi-clock-history"></i>
+
+            </div>
+
+            <h4>
+              Save Your Time
+            </h4>
+
+            <p>
+              We take care of your car while you
+              focus on your daily work.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- BENEFIT 3 -->
+
+        <div class="col-md-4">
+
+          <div class="subscription-benefit-card">
+
+            <div class="benefit-icon">
+
+              <i class="bi bi-stars"></i>
+
+            </div>
+
+            <h4>
+              Consistent Quality
+            </h4>
+
+            <p>
+              Get reliable car care from a professional
+              service team.
+            </p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+</section>
+
+
+<!-- =========================================================
+     PLAN SELECTION + FORM JAVASCRIPT
+========================================================== -->
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.getElementById("subscriptionForm");
+
+    const selectedPlanInput =
+      document.getElementById("selectedPlanId");
+
+    const selectedPlanSummary =
+      document.getElementById("selectedPlanSummary");
+
+    const selectedPlanName =
+      document.getElementById("selectedPlanName");
+
+    const planOptions =
+      document.querySelectorAll(
+        'input[name="planSelection"]'
+      );
+
+
+    /*
+    ==========================================================
+    PLAN SELECTION
+    ==========================================================
+    */
+
+    planOptions.forEach(function (radio) {
+
+      radio.addEventListener("change", function () {
+
+        const planId = this.dataset.planId;
+
+        const planName = this.dataset.planName;
+
+
+        // Put selected plan inside the actual form
+
+        selectedPlanInput.value = planId;
+
+
+        // Update summary
+
+        selectedPlanName.textContent = planName;
+
+        selectedPlanSummary.style.display = "flex";
+
+
+        // Scroll summary into view slightly
+
+        selectedPlanSummary.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest"
+        });
+
+      });
+
+    });
+
+
+    /*
+    ==========================================================
+    FORM VALIDATION
+    ==========================================================
+    */
+
+    form.addEventListener("submit", function (event) {
+
+      if (!selectedPlanInput.value) {
+
+        event.preventDefault();
+
+
+        alert(
+          "Please select a service plan before submitting your request."
+        );
+
+
+        const plansSection =
+          document.querySelector(
+            ".subscription-plans-section"
+          );
+
+
+        if (plansSection) {
+
+          plansSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+        }
+
+        return;
+
+      }
+
+    });
+
+
+    /*
+    ==========================================================
+    CAR NUMBER UPPERCASE
+    ==========================================================
+    */
+
+    const carNumber =
+      document.getElementById("carNumber");
+
+
+    if (carNumber) {
+
+      carNumber.addEventListener("input", function () {
+
+        this.value =
+          this.value.toUpperCase();
+
+      });
+
+    }
+
+  });
+
+</script>

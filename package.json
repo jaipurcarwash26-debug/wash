@@ -1,0 +1,29 @@
+{
+  "name": "jaipur-car-wash",
+  "version": "1.0.0",
+  "description": "Jaipur Car Wash website",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^6.0.0",
+    "dotenv": "^16.6.1",
+    "ejs": "^3.1.10",
+    "express": "^4.22.3",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.19.0",
+    "mongoose": "^9.11.0",
+    "nodemailer": "^10.0.16",
+    "pdfkit": "^0.20.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

@@ -1,0 +1,35 @@
+<div class="admin-dashboard-page">
+  <section class="admin-dashboard-header">
+    <div class="container-fluid">
+      <span>JAIPUR CAR CLEAN</span>
+      <h1>Admin Dashboard</h1>
+      <p>View and manage customer trial and subscription requests.</p>
+    </div>
+  </section>
+
+  <section class="admin-dashboard-content">
+    <div class="container-fluid">
+      <div class="admin-dashboard-grid">
+        <a
+          href="/<%= process.env.ADMIN_URL %>/dashboard/requests"
+          class="admin-dash-box"
+          id="requests"
+        >
+          <div class="admin-dash-icon">
+            <i class="bi bi-inbox-fill"></i>
+          </div>
+
+          <div class="admin-dash-content">
+            <span class="admin-dash-title">Customer Requests</span>
+
+            <span class="admin-dash-description">
+              View customer details and manage trial and subscription requests.
+            </span>
+          </div>
+
+          <i class="bi bi-arrow-right admin-dash-arrow"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>

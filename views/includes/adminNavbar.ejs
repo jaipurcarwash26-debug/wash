@@ -1,0 +1,90 @@
+<nav class="admin-navbar">
+  <div class="container-fluid">
+    <div class="admin-navbar-inner">
+      <!-- BRAND -->
+      <a href="/<%= process.env.ADMIN_URL %>/dashboard" class="admin-brand">
+        <div class="admin-brand-icon">
+          <i class="bi bi-car-front-fill"></i>
+        </div>
+
+        <div>
+          <strong>Jaipur Car Clean</strong>
+          <span>ADMIN PANEL</span>
+        </div>
+      </a>
+
+      <!-- MOBILE TOGGLE -->
+      <button
+        class="admin-navbar-toggle"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#adminNavigation"
+        aria-controls="adminNavigation"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="bi bi-list"></i>
+      </button>
+
+      <!-- NAVIGATION -->
+      <div class="collapse admin-navigation" id="adminNavigation">
+        <!-- REQUESTS -->
+        <a
+          href="/<%= process.env.ADMIN_URL %>/dashboard/requests"
+          class="admin-nav-link"
+        >
+          <i class="bi bi-inbox"></i>
+          <span>Requests</span>
+        </a>
+
+        <!-- TRIAL CUSTOMERS -->
+        <a
+          href="/<%= process.env.ADMIN_URL %>/dashboard/trials"
+          class="admin-nav-link"
+        >
+          <i class="bi bi-car-front"></i>
+          <span>Trial Customers</span>
+        </a>
+
+        <!-- ACTIVE SUBSCRIPTIONS -->
+        <a
+          href="/<%= process.env.ADMIN_URL %>/dashboard/active"
+          class="admin-nav-link"
+        >
+          <i class="bi bi-check-circle"></i>
+          <span>Active Subscriptions</span>
+        </a>
+
+        <!-- EXPIRED -->
+        <a
+          href="/<%= process.env.ADMIN_URL %>/dashboard/expired"
+          class="admin-nav-link"
+        >
+          <i class="bi bi-clock-history"></i>
+          <span>Expired</span>
+        </a>
+
+        <!-- REJECTED / CANCELLED -->
+        <a
+          href="/<%= process.env.ADMIN_URL %>/dashboard/rejected"
+          class="admin-nav-link"
+        >
+          <i class="bi bi-x-circle"></i>
+          <span>Rejected / Cancelled</span>
+        </a>
+
+        <!-- LOGOUT -->
+        <form
+          action="/<%= process.env.ADMIN_URL %>/logout"
+          method="POST"
+          class="admin-logout-form"
+        >
+          <button type="submit" class="admin-logout-button">
+            <i class="bi bi-box-arrow-right"></i>
+            <span>Logout</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>

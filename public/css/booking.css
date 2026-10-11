@@ -1,0 +1,5 @@
+.booking-page {
+  width: min(100% - 2rem, 48rem);
+  margin: 3rem auto;
+  padding: 2rem;
+}

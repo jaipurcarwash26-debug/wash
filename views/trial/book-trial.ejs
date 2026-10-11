@@ -1,0 +1,376 @@
+<section class="booking-page">
+  <!-- =========================================
+       BOOKING HERO
+  ========================================= -->
+
+  <section class="booking-hero">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <!-- LEFT CONTENT -->
+
+        <div class="col-lg-6">
+          <span class="booking-badge">
+            <i class="bi bi-stars"></i>
+            FREE TRIAL
+          </span>
+
+          <h1>
+            Experience
+            <span>Premium Car Care</span>
+            Before You Subscribe
+          </h1>
+
+          <p class="booking-hero-text">
+            Give your car the care it deserves. Book a free trial and experience
+            professional car cleaning at your preferred location.
+          </p>
+
+          <div class="booking-trust">
+            <div class="booking-trust-item">
+              <i class="bi bi-check-circle-fill"></i>
+
+              <div>
+                <strong>Free Trial</strong>
+                <span>No payment required</span>
+              </div>
+            </div>
+
+            <div class="booking-trust-item">
+              <i class="bi bi-geo-alt-fill"></i>
+
+              <div>
+                <strong>At Your Location</strong>
+                <span>Convenient car service</span>
+              </div>
+            </div>
+
+            <div class="booking-trust-item">
+              <i class="bi bi-shield-check"></i>
+
+              <div>
+                <strong>Professional Care</strong>
+                <span>Quality service</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- =========================================
+             RIGHT FORM
+        ========================================= -->
+
+        <div class="col-lg-6">
+          <div class="booking-card">
+            <div class="booking-card-header">
+              <div class="booking-icon">
+                <i class="bi bi-car-front-fill"></i>
+              </div>
+
+              <div>
+                <h3>Book Your Free Trial</h3>
+                <p>Tell us a few details about your car.</p>
+              </div>
+            </div>
+
+            <!-- FORM -->
+
+            <form action="/trial/book" method="POST">
+              <!-- CUSTOMER NAME -->
+
+              <div class="booking-field">
+                <label for="name"> Customer Name </label>
+
+                <div class="input-wrapper">
+                  <i class="bi bi-person"></i>
+
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- PHONE -->
+
+              <div class="booking-field">
+                <label for="phone"> Phone Number </label>
+
+                <div class="input-wrapper">
+                  <i class="bi bi-telephone"></i>
+
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter your phone number"
+                    autocomplete="tel"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- CAR NUMBER -->
+
+              <div class="booking-field">
+                <label for="carNumber"> Car Number </label>
+
+                <div class="input-wrapper">
+                  <i class="bi bi-car-front"></i>
+
+                  <input
+                    type="text"
+                    id="carNumber"
+                    name="carNumber"
+                    placeholder="RJ14AB1234"
+                    style="text-transform: uppercase"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- CAR LOCATION -->
+
+              <div class="booking-field">
+                <label for="carLocation"> Car Location </label>
+
+                <div class="input-wrapper">
+                  <i class="bi bi-geo-alt"></i>
+
+                  <input
+                    type="text"
+                    id="carLocation"
+                    name="carLocation"
+                    placeholder="Where is your car located?"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- =====================================
+                   MAP LOCATION
+              ====================================== -->
+
+              <div class="booking-field">
+                <label for="mapLocationUrl"> Google Maps Location </label>
+
+                <div class="input-wrapper">
+                  <i class="bi bi-map"></i>
+
+                  <input
+                    type="url"
+                    id="mapLocationUrl"
+                    name="mapLocationUrl"
+                    placeholder="Select location on map"
+                    readonly
+                    required
+                  />
+                </div>
+
+                <!-- OPEN MAP -->
+
+                <button
+                  type="button"
+                  class="location-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#locationModal"
+                >
+                  <i class="bi bi-geo-alt"></i>
+
+                  Select Location on Map
+                </button>
+
+                <small class="field-help">
+                  <i class="bi bi-info-circle"></i>
+
+                  Select the exact location where your car is parked.
+                </small>
+              </div>
+
+              <!-- SUBMIT -->
+
+              <button type="submit" class="booking-submit">
+                <span> Book Free Trial </span>
+
+                <i class="bi bi-arrow-right"></i>
+              </button>
+
+              <!-- NOTE -->
+
+              <p class="booking-note">
+                <i class="bi bi-shield-check"></i>
+
+                Your information is safe with us.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       LOCATION MAP MODAL
+
+       IMPORTANT:
+       This is OUTSIDE booking-hero.
+  ========================================= -->
+
+  <div
+    class="modal fade"
+    id="locationModal"
+    tabindex="-1"
+    aria-labelledby="locationModalLabel"
+    aria-hidden="true"
+  >
+    <div
+      class="modal-dialog modal-xl modal-dialog-centered location-modal-dialog"
+    >
+      <div class="modal-content location-modal-content">
+        <!-- HEADER -->
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="locationModalLabel">
+            <i class="bi bi-geo-alt-fill"></i>
+
+            Select Your Car Location
+          </h5>
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <!-- BODY -->
+
+        <div class="modal-body">
+          <p class="map-instruction">
+            <i class="bi bi-hand-index-thumb"></i>
+
+            Tap or click on the map to select the exact location where your car
+            is parked.
+          </p>
+
+          <!-- MAP -->
+
+          <div id="locationMap"></div>
+          <button type="button" class="location-btn" id="useMyLocation">
+            + <i class="bi bi-crosshair"></i> + Use My Current Location +
+          </button>
+          <!-- SELECTED LOCATION -->
+
+          <div class="selected-location">
+            <i class="bi bi-pin-map-fill"></i>
+
+            <span id="selectedCoordinates">
+              Please select a location on the map
+            </span>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="button"
+            class="location-confirm-btn"
+            id="confirmLocation"
+            disabled
+          >
+            <i class="bi bi-check-circle"></i>
+
+            Confirm Location
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================
+       HOW TRIAL WORKS
+  ========================================= -->
+
+  <section class="trial-info-section">
+    <div class="container">
+      <div class="section-heading text-center">
+        <span> SIMPLE PROCESS </span>
+
+        <h2>How Your <span>Trial</span> Works</h2>
+
+        <p>Getting started with Jaipur Car Clean is simple.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- STEP 1 -->
+
+        <div class="col-md-4">
+          <div class="trial-step-card">
+            <div class="trial-step-number">01</div>
+
+            <div class="trial-step-icon">
+              <i class="bi bi-calendar-check"></i>
+            </div>
+
+            <h4>Book Your Trial</h4>
+
+            <p>
+              Submit your basic details and tell us where your car is located.
+            </p>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+
+        <div class="col-md-4">
+          <div class="trial-step-card">
+            <div class="trial-step-number">02</div>
+
+            <div class="trial-step-icon">
+              <i class="bi bi-droplet-half"></i>
+            </div>
+
+            <h4>Experience Our Service</h4>
+
+            <p>
+              Our team provides professional car cleaning at your selected
+              location.
+            </p>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+
+        <div class="col-md-4">
+          <div class="trial-step-card">
+            <div class="trial-step-number">03</div>
+
+            <div class="trial-step-icon">
+              <i class="bi bi-hand-thumbs-up"></i>
+            </div>
+
+            <h4>Decide With Confidence</h4>
+
+            <p>
+              Like our service? You can then choose a subscription plan that
+              suits you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

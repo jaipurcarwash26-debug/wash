@@ -1,0 +1,67 @@
+```ejs
+<section class="admin-login-page">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-12 col-sm-10 col-md-7 col-lg-5">
+        <div class="admin-login-card">
+          <div class="admin-login-icon">
+            <i class="bi bi-shield-lock-fill"></i>
+          </div>
+
+          <div class="text-center">
+            <span class="admin-login-label">JAIPUR CAR CLEAN</span>
+            <h1>Admin Login</h1>
+            <p>Sign in to manage customer requests.</p>
+          </div>
+
+          <form action="/<%= process.env.ADMIN_URL %>/login" method="POST">
+            <div class="admin-field">
+              <label for="email">Admin Email</label>
+
+              <div class="admin-input-wrapper">
+                <i class="bi bi-envelope"></i>
+
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter admin email"
+                  autocomplete="username"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="admin-field">
+              <label for="password">Password</label>
+
+              <div class="admin-input-wrapper">
+                <i class="bi bi-lock"></i>
+
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Enter admin password"
+                  autocomplete="current-password"
+                  required
+                />
+              </div>
+            </div>
+
+            <button type="submit" class="admin-login-button">
+              <span>Login to Dashboard</span>
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </form>
+
+          <div class="admin-security-note">
+            <i class="bi bi-shield-check"></i>
+            Authorized administrator access only.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+```
