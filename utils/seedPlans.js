@@ -12,7 +12,7 @@ dotenv.config({
 const monthlyServices = [
   "Exterior Cleaning Every Day",
   "Total of 2 Interior Cleaning Sessions in 30 Days",
-  "1 Full Deep Wash Every 30 Days",
+  "2 Full Deep Wash Every 30 Days",
   "tyre Polish Once in 30 Days",
   "Door-to-Door Service",
   "Customer Support",
@@ -143,7 +143,7 @@ const seedPlans = async () => {
     console.log("Exterior Cleaning: Every day");
     console.log("Tyre Polish: 1 Times / 30 days");
     console.log("Interior Cleaning: 2 Times / 30 days");
-    console.log("Full Deep Wash: 1 Time / 30 days");
+    console.log("Full Deep Wash: 2 Time / 30 days");
     console.log("==============================\n");
 
     await mongoose.disconnect();
