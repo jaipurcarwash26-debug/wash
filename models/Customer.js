@@ -35,6 +35,13 @@ const customerSchema = new mongoose.Schema(
       uppercase: true,
     },
 
+    carName: {
+      type: String,
+      required: true,
+      trim: true,
+      uppercase: true,
+    },
+
     carLocation: {
       type: String,
       required: true,
@@ -44,6 +51,7 @@ const customerSchema = new mongoose.Schema(
     mapLocationUrl: {
       type: String,
       trim: true,
+      required: true,
       default: "",
     },
   },

@@ -176,13 +176,24 @@
                   <% } %>
                 <% } %>
 
-                <span>
-                  <i class="bi bi-calendar3"></i>
-                  Submitted:
-                  <%= createdAt && !isNaN(createdAt.getTime())
-                    ? createdAt.toLocaleString("en-IN")
-                    : "Date unavailable" %>
-                </span>
+                
+<span>
+  <i class="bi bi-calendar3"></i>
+  Submitted:
+  <%= createdAt && !isNaN(createdAt.getTime())
+    ? createdAt.toLocaleString("en-IN", {
+        timeZone: "Asia/Kolkata",
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true
+      })
+    : "Date unavailable" %>
+</span>
+
 
               </div>
 

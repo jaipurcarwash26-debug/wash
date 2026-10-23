@@ -28,13 +28,15 @@ exports.createTrialRequest = async (req, res) => {
       carLocation,
       mapLocationUrl,
       carNumber,
+      carName,
     } = req.body;
 
     if (
       !name?.trim() ||
       !phone?.trim() ||
       !carLocation?.trim() ||
-      !carNumber?.trim()
+      !carNumber?.trim() ||
+      !carName?.trim()
     ) {
       req.flash("error", "Please fill all required fields.");
       return res.redirect("/trial/book");
@@ -91,6 +93,7 @@ exports.createTrialRequest = async (req, res) => {
         email: normalizedEmail,
         address: normalizedAddress,
         carNumber: normalizedCarNumber,
+        carName: carName.trim().toUpperCase(),
         carLocation: carLocation.trim(),
         mapLocationUrl: normalizedMapUrl,
       };

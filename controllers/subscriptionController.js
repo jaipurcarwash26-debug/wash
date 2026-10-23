@@ -41,6 +41,7 @@ exports.createSubscriptionRequest = async (req, res) => {
       carLocation,
       mapLocationUrl,
       carNumber,
+      carName,
       planId,
     } = req.body;
 
@@ -49,6 +50,7 @@ exports.createSubscriptionRequest = async (req, res) => {
       !phone?.trim() ||
       !carLocation?.trim() ||
       !carNumber?.trim() ||
+      !carName?.trim() ||
       !planId
     ) {
       req.flash("error", "Please fill all required fields.");
@@ -90,6 +92,7 @@ exports.createSubscriptionRequest = async (req, res) => {
         email: normalizedEmail,
         address: normalizedAddress,
         carNumber: normalizedCarNumber,
+        carName: carName.trim().toUpperCase(),
         carLocation: carLocation.trim(),
         mapLocationUrl: normalizedMapUrl,
       };
