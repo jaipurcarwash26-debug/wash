@@ -73,6 +73,7 @@
             const phone = customer?.phone || "N/A";
             const email = customer?.email || "";
             const carNumber = customer?.carNumber || "N/A";
+            const carName = customer?.carName || "N/A";
             const carLocation = customer?.carLocation || "";
             const address = customer?.address || "";
             const mapLocationUrl = customer?.mapLocationUrl || "";
@@ -122,6 +123,11 @@
                   <i class="bi bi-car-front"></i>
                   <%= carNumber %>
                 </span>
+
+                <span>
+  <i class="bi bi-car-front-fill"></i>
+  Car Name: <%= carName %>
+</span>
 
                 <span>
                   <i class="bi bi-telephone"></i>
