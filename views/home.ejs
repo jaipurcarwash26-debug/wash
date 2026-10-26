@@ -68,6 +68,103 @@
   </section>
 
   <!-- =====================================
+     CUSTOMER REVIEW VIDEO
+====================================== -->
+
+  <section class="review-video-section section-padding" id="reviewVideoSection">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="review-video-content">
+            <span class="section-label">REAL CUSTOMER EXPERIENCE</span>
+
+            <h2>
+              Hear It From
+              <span>Our Customers.</span>
+            </h2>
+
+            <p>
+              See how Jaipur Car Clean makes everyday car care easier. Watch our
+              customer review and discover the difference convenient, reliable
+              service can make.
+            </p>
+
+            <div class="review-video-points">
+              <div>
+                <i class="bi bi-check-circle-fill"></i>
+                Real customer experience
+              </div>
+
+              <div>
+                <i class="bi bi-check-circle-fill"></i>
+                Convenient car cleaning
+              </div>
+
+              <div>
+                <i class="bi bi-check-circle-fill"></i>
+                Reliable service in Jaipur
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div
+            class="about-video-wrapper review-video-wrapper"
+            id="reviewVideoPlayer"
+          >
+            <video
+              id="reviewVideo"
+              class="about-video"
+              src="/videos/full.mp4"
+              preload="metadata"
+              playsinline
+              webkit-playsinline
+              controlslist="nodownload"
+              aria-label="Jaipur Car Clean customer review video"
+            >
+              Your browser does not support HTML video.
+            </video>
+
+            <div class="about-video-overlay">
+              <span class="about-video-brand">
+                <i class="bi bi-chat-heart-fill"></i>
+                CUSTOMER REVIEW
+              </span>
+
+              <div class="about-video-controls">
+                <button
+                  type="button"
+                  id="reviewPlayPause"
+                  class="about-video-btn"
+                  aria-label="Play review video"
+                  title="Play/Pause"
+                >
+                  <i class="bi bi-play-fill"></i>
+                </button>
+
+                <button
+                  type="button"
+                  id="reviewMuteToggle"
+                  class="about-video-btn"
+                  aria-label="Turn sound on"
+                  title="Sound On/Off"
+                >
+                  <i class="bi bi-volume-mute-fill"></i>
+                </button>
+
+                <span id="reviewVideoStatus" class="about-video-status">
+                  Ready to play
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================
          WHY CHOOSE US
     ====================================== -->
 
@@ -144,17 +241,50 @@
     <div class="container">
       <div class="row align-items-center g-5">
         <div class="col-lg-6">
-          <div class="about-visual">
-            <div class="about-main-card">
-              <i class="bi bi-car-front-fill"></i>
+          <div class="about-video-wrapper" id="aboutVideoSection">
+            <video
+              id="aboutVideo"
+              class="about-video"
+              src="/videos/small.mp4"
+              preload="metadata"
+              playsinline
+              webkit-playsinline
+              controlslist="nodownload"
+              aria-label="Jaipur Car Wash service video"
+            >
+              Your browser does not support HTML video.
+            </video>
 
-              <h3>
-                Jaipur
-                <br />
-                Car Wash
-              </h3>
+            <div class="about-video-overlay">
+              <span class="about-video-brand">
+                <i class="bi bi-stars"></i> JAIPUR CAR WASH
+              </span>
 
-              <p>Clean. Fresh. Shining.</p>
+              <div class="about-video-controls">
+                <button
+                  type="button"
+                  id="aboutPlayPause"
+                  class="about-video-btn"
+                  aria-label="Play video"
+                  title="Play/Pause"
+                >
+                  <i class="bi bi-play-fill"></i>
+                </button>
+
+                <button
+                  type="button"
+                  id="aboutMuteToggle"
+                  class="about-video-btn"
+                  aria-label="Turn sound on"
+                  title="Sound On/Off"
+                >
+                  <i class="bi bi-volume-mute-fill"></i>
+                </button>
+
+                <span id="aboutVideoStatus" class="about-video-status">
+                  Ready to play
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -418,17 +548,17 @@
 
               <li>
                 <i class="bi bi-check2"></i>
-                1 Times Tyre Polish in 30 Days
-              </li>
-
-              <li>
-                <i class="bi bi-check2"></i>
-                2 Times Interior Clean in 30 Days
-              </li>
-
-              <li>
-                <i class="bi bi-check2"></i>
                 2 Time Car Wash
+              </li>
+
+              <li>
+                <i class="bi bi-check2"></i>
+                2 Times Interior Clean
+              </li>
+
+              <li>
+                <i class="bi bi-check2"></i>
+                1 Times Tyre Polish
               </li>
 
               <li>
@@ -469,17 +599,17 @@
 
               <li>
                 <i class="bi bi-check2"></i>
-                1 Times Tyre Polish in 30 Days
-              </li>
-
-              <li>
-                <i class="bi bi-check2"></i>
-                2 Times Interior Clean in 30 Days
-              </li>
-
-              <li>
-                <i class="bi bi-check2"></i>
                 2 Time Car Wash
+              </li>
+
+              <li>
+                <i class="bi bi-check2"></i>
+                2 Times Interior Clean
+              </li>
+
+              <li>
+                <i class="bi bi-check2"></i>
+                1 Times Tyre Polish
               </li>
 
               <li>
@@ -520,17 +650,17 @@
 
               <li>
                 <i class="bi bi-check2"></i>
-                1 Times Tyre Polish in 30 Days
-              </li>
-
-              <li>
-                <i class="bi bi-check2"></i>
-                2 Times Interior Clean in 30 Days
-              </li>
-
-              <li>
-                <i class="bi bi-check2"></i>
                 2 Time Car Wash
+              </li>
+
+              <li>
+                <i class="bi bi-check2"></i>
+                2 Times Interior Clean
+              </li>
+
+              <li>
+                <i class="bi bi-check2"></i>
+                1 Times Tyre Polish
               </li>
 
               <li>
@@ -573,17 +703,17 @@
 
               <li>
                 <i class="bi bi-check2"></i>
-                1 Times Tyre Polish in 30 Days
-              </li>
-
-              <li>
-                <i class="bi bi-check2"></i>
-                2 Times Interior Clean in 30 Days
-              </li>
-
-              <li>
-                <i class="bi bi-check2"></i>
                 2 Time Car Wash
+              </li>
+
+              <li>
+                <i class="bi bi-check2"></i>
+                2 Times Interior Clean
+              </li>
+
+              <li>
+                <i class="bi bi-check2"></i>
+                1 Times Tyre Polish
               </li>
 
               <li>
@@ -693,7 +823,7 @@
               cleaning."
             </p>
 
-            <h5>Rahul Sharma</h5>
+            <h5>Jai Kumar Chelani</h5>
 
             <small> Jaipur </small>
           </div>
@@ -717,7 +847,7 @@
 
             <p>"Good service and simple subscription process."</p>
 
-            <h5>Neha Gupta</h5>
+            <h5>Gaurav Garg</h5>
 
             <small> Jaipur </small>
           </div>

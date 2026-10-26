@@ -515,3 +515,312 @@ if (confirmSubscriptionLocation) {
     }
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const section = document.getElementById("aboutVideoSection");
+  const video = document.getElementById("aboutVideo");
+  const playButton = document.getElementById("aboutPlayPause");
+  const muteButton = document.getElementById("aboutMuteToggle");
+  const status = document.getElementById("aboutVideoStatus");
+
+  if (!section || !video || !playButton || !muteButton || !status) {
+    return;
+  }
+
+  let sectionVisible = false;
+  let userPaused = false;
+  let userChangedSound = false;
+
+  function updatePlayButton() {
+    const playing = !video.paused && !video.ended;
+
+    playButton.innerHTML = playing
+      ? '<i class="bi bi-pause-fill"></i>'
+      : '<i class="bi bi-play-fill"></i>';
+
+    playButton.setAttribute(
+      "aria-label",
+      playing ? "Pause video" : "Play video",
+    );
+  }
+
+  function updateMuteButton() {
+    muteButton.innerHTML = video.muted
+      ? '<i class="bi bi-volume-mute-fill"></i>'
+      : '<i class="bi bi-volume-up-fill"></i>';
+
+    muteButton.setAttribute(
+      "aria-label",
+      video.muted ? "Turn sound on" : "Turn sound off",
+    );
+  }
+
+  async function startVideo() {
+    if (!sectionVisible || userPaused) return;
+
+    try {
+      // Try audio first when entering the section.
+      if (!userChangedSound) {
+        video.muted = false;
+        video.volume = 1;
+      }
+
+      await video.play();
+
+      status.textContent = video.muted
+        ? "Playing · Sound off"
+        : "Playing · Sound on";
+    } catch (error) {
+      // Browsers commonly block autoplay with sound.
+      if (!userChangedSound) {
+        video.muted = true;
+
+        try {
+          await video.play();
+          status.textContent = "Playing · Sound off";
+        } catch (playError) {
+          status.textContent = "Tap play to start";
+        }
+      } else {
+        status.textContent = "Tap play to start";
+      }
+    }
+
+    updatePlayButton();
+    updateMuteButton();
+  }
+
+  playButton.addEventListener("click", async () => {
+    if (video.paused || video.ended) {
+      userPaused = false;
+
+      try {
+        await video.play();
+        status.textContent = video.muted
+          ? "Playing · Sound off"
+          : "Playing · Sound on";
+      } catch (error) {
+        status.textContent = "Unable to play this video";
+      }
+    } else {
+      userPaused = true;
+      video.pause();
+      status.textContent = "Paused";
+    }
+
+    updatePlayButton();
+  });
+
+  muteButton.addEventListener("click", async () => {
+    userChangedSound = true;
+    video.muted = !video.muted;
+
+    // A sound button click is a user gesture, so retry playback
+    // if the video has not started yet.
+    if (video.paused && sectionVisible && !userPaused) {
+      try {
+        await video.play();
+      } catch (error) {
+        status.textContent = "Tap play to start";
+      }
+    }
+
+    status.textContent = video.paused
+      ? "Paused"
+      : video.muted
+        ? "Playing · Sound off"
+        : "Playing · Sound on";
+
+    updateMuteButton();
+    updatePlayButton();
+  });
+
+  video.addEventListener("play", updatePlayButton);
+
+  video.addEventListener("pause", updatePlayButton);
+
+  video.addEventListener("volumechange", updateMuteButton);
+
+  video.addEventListener("ended", () => {
+    status.textContent = "Video ended";
+    updatePlayButton();
+  });
+
+  // Start when the About section enters the viewport.
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        sectionVisible = entry.isIntersecting;
+
+        if (sectionVisible) {
+          if (!userPaused) {
+            startVideo();
+          }
+        } else {
+          // Stop playback and audio when the section leaves view.
+          video.pause();
+          video.muted = true;
+          userChangedSound = false;
+          userPaused = false;
+          status.textContent = "Ready to play";
+
+          updatePlayButton();
+          updateMuteButton();
+        }
+      });
+    },
+    {
+      threshold: 0.4,
+    },
+  );
+
+  observer.observe(section);
+
+  updatePlayButton();
+  updateMuteButton();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const section = document.getElementById("reviewVideoSection");
+  const video = document.getElementById("reviewVideo");
+  const playButton = document.getElementById("reviewPlayPause");
+  const muteButton = document.getElementById("reviewMuteToggle");
+  const status = document.getElementById("reviewVideoStatus");
+
+  if (!section || !video || !playButton || !muteButton || !status) {
+    return;
+  }
+
+  let isVisible = false;
+  let userPaused = false;
+  let userChangedSound = false;
+
+  function updateControls() {
+    const playing = !video.paused && !video.ended;
+
+    playButton.innerHTML = playing
+      ? '<i class="bi bi-pause-fill"></i>'
+      : '<i class="bi bi-play-fill"></i>';
+
+    playButton.setAttribute(
+      "aria-label",
+      playing ? "Pause review video" : "Play review video",
+    );
+
+    muteButton.innerHTML = video.muted
+      ? '<i class="bi bi-volume-mute-fill"></i>'
+      : '<i class="bi bi-volume-up-fill"></i>';
+
+    muteButton.setAttribute(
+      "aria-label",
+      video.muted ? "Turn sound on" : "Turn sound off",
+    );
+  }
+
+  async function playReview() {
+    if (!isVisible || userPaused) return;
+
+    try {
+      if (!userChangedSound) {
+        video.muted = false;
+        video.volume = 1;
+      }
+
+      await video.play();
+      status.textContent = video.muted
+        ? "Playing · Sound off"
+        : "Playing · Sound on";
+    } catch (error) {
+      if (!userChangedSound) {
+        video.muted = true;
+
+        try {
+          await video.play();
+          status.textContent = "Playing · Sound off";
+        } catch (fallbackError) {
+          status.textContent = "Tap play to start";
+        }
+      } else {
+        status.textContent = "Tap play to start";
+      }
+    }
+
+    updateControls();
+  }
+
+  playButton.addEventListener("click", async () => {
+    if (video.paused || video.ended) {
+      userPaused = false;
+
+      try {
+        await video.play();
+        status.textContent = video.muted
+          ? "Playing · Sound off"
+          : "Playing · Sound on";
+      } catch (error) {
+        status.textContent = "Unable to play video";
+      }
+    } else {
+      userPaused = true;
+      video.pause();
+      status.textContent = "Paused";
+    }
+
+    updateControls();
+  });
+
+  muteButton.addEventListener("click", async () => {
+    userChangedSound = true;
+    video.muted = !video.muted;
+
+    if (video.paused && isVisible && !userPaused) {
+      try {
+        await video.play();
+      } catch (error) {
+        status.textContent = "Tap play to start";
+      }
+    }
+
+    if (!video.paused) {
+      status.textContent = video.muted
+        ? "Playing · Sound off"
+        : "Playing · Sound on";
+    }
+
+    updateControls();
+  });
+
+  video.addEventListener("play", updateControls);
+  video.addEventListener("pause", updateControls);
+  video.addEventListener("volumechange", updateControls);
+
+  video.addEventListener("ended", () => {
+    status.textContent = "Review finished";
+    updateControls();
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        isVisible = entry.isIntersecting;
+
+        if (isVisible) {
+          playReview();
+        } else {
+          video.pause();
+          video.muted = true;
+          userChangedSound = false;
+          userPaused = false;
+          status.textContent = "Ready to play";
+          updateControls();
+        }
+      });
+    },
+    {
+      threshold: 0.4,
+    },
+  );
+
+  observer.observe(section);
+  updateControls();
+});
