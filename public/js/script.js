@@ -820,7 +820,7 @@ document.addEventListener("DOMContentLoaded", () => {
       threshold: 0.4,
     },
   );
-
+  a;
   observer.observe(section);
   updateControls();
 });
