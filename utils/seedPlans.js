@@ -43,7 +43,7 @@ const plans = [
   {
     name: "Interior + Exterior Wash",
 
-    price: 129,
+    price: 139,
 
     durationInDays: 1,
 
